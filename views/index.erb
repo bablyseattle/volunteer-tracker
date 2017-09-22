@@ -1,6 +1,17 @@
+<div class="jumbotron">
+  <h1>Guide Star</h1>
+  <p>Come, work with us !!</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
+<h1>Projects:</h1>
+<% if @list.any? %>
+<p>Click on a projects to see its volunteers</p>
 
 <ul>
-	<% @list.each do |item| %>
-	<li> <%= item.title %></li>
-	<% end %>
+  <% @list.each do |item| %>
+  <li><a href="/<%=item.id() %>"><%=item.title %></a></li>
+  <% end %>
 </ul>
+<% else %>
+<p>There are no projects yet!</p>
+<% end %>

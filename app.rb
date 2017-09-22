@@ -10,13 +10,15 @@ DB = PG.connect({:dbname => 'volunteer_tracker_test'})
 
 
 
+get('/new') do
+	erb(:new)
+end
+
 get('/') do
 	@list = Project.all
   	erb(:index)
 end
-get('/new') do
-	erb(:new)
-end
+
 
 post('/') do
 @title = params.fetch("title")
