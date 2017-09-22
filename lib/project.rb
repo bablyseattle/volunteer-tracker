@@ -15,13 +15,35 @@ class Project
   end
 
   def self.all
-    records = DB.exec("SELECT * from projects")
+    records = DB.exec("SELECT * FROM projects")
     list = []
     records.each do | record|
       title = record.fetch("title")
-      id = record.fetch("id")
+      id = record.fetch("id").to_i
       list.push(Project.new({:title => title, :id => id}))
     end
     list
   end
+
+  def self.find(id)
+    records = DB.exec("SELECT * FROM projects WHERE id = #{id};")
+    list = []
+    records.each do | record|
+      title = record.fetch("title")
+      id = record.fetch("id").to_i
+      list.push(Project.new({:title => title, :id => id}))
+    end
+    list
+  end
+
+  def update(attributes)
+    @title = attributes.fetch(:title)
+    @id = self.id
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+  end
+
+  def delete
+    DB.exec("DELETE from projects where id = #{self.id};")
+  end
+
 end
