@@ -24,6 +24,6 @@ post('/') do
 @title = params.fetch("title")
 project = Project.new(:title => @title, :id => nil)
 project.save
-erb(:index)
+redirect '/'
 end
 
