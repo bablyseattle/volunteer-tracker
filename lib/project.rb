@@ -46,4 +46,15 @@ class Project
     DB.exec("DELETE from projects where id = #{self.id};")
   end
 
+  def volunteers
+    records = DB.exec("SELECT * from volunteers where project_id = #{self.id};")
+    list = []
+    records.each do | record|
+      name = record.fetch("name")
+      id = record.fetch("id").to_i
+      project_id = record.fetch("project_id")
+      list.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+    end
+    list
+  end
 end
