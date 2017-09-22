@@ -1,9 +1,6 @@
-<h1>Create a Project</h1>
 
-<form action="/projects" method="post">
-  <div class="form-group">
-    <label for="title">Title:</label>
-    <input type="text" name="title" class="form-control">
-  </div>
- <button type="submit" class="btn">Create Project</button>
-</form>
+<ul>
+	<% @list.each do |item| %>
+	<li> <%= item.title %></li>
+	<% end %>
+</ul>
