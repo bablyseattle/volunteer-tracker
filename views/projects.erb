@@ -2,6 +2,19 @@
 	<h2><%= @project.title	%></h2>
 </div>
 
+<form action="/<%= @project.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <p>Are you sure you want to delete this project?</p>
+ <button type="submit" class="btn btn-danger">Delete project</button>
+</form>
+
+<form action="/<%= @project.id %>/edit" method="post">
+	<p>Update name of project</p>
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="title">
+ <button type="submit" class="btn btn-success">Update project</button>
+</form>
+
 <h1>Volunteers:</h1>
 <% if @list.any? %>
 <p>List of volunteers:</p>

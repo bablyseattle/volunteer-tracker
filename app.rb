@@ -37,9 +37,22 @@ get('/:id') do
 	erb :projects
 end
 
+delete('/:id/delete') do
+	@project = Project.find(params[:id].to_i)
+	@project.delete
+	redirect '/'
+end
+
+patch('/:id/edit') do
+	@project = Project.find(params[:id].to_i)
+	title = params["title"]
+	@project.update(:title => title)
+	redirect back
+end
+
 post('/add_volunteer') do
 	name = params["name"]
-	project_id = params["project_id"]
+	project_id = params.fetch("title")
 	volunteer = Volunteer.new(:name => name, :id => nil, :project_id => project_id)
 	volunteer.save
 	redirect back
