@@ -33,7 +33,7 @@ class Project
       id = record.fetch("id").to_i
       list.push(Project.new({:title => title, :id => id}))
     end
-    list
+    list[0]
   end
 
   def update(attributes)
