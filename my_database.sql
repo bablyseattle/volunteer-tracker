@@ -120,6 +120,7 @@ ALTER TABLE ONLY volunteers ALTER COLUMN id SET DEFAULT nextval('volunteers_id_s
 --
 
 COPY projects (title, id) FROM stdin;
+msd	357
 \.
 
 
@@ -127,7 +128,7 @@ COPY projects (title, id) FROM stdin;
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bably
 --
 
-SELECT pg_catalog.setval('projects_id_seq', 1, false);
+SELECT pg_catalog.setval('projects_id_seq', 357, true);
 
 
 --
@@ -135,6 +136,8 @@ SELECT pg_catalog.setval('projects_id_seq', 1, false);
 --
 
 COPY volunteers (name, project_id, id) FROM stdin;
+sdfdf	357	232
+wdef	357	233
 \.
 
 
@@ -142,7 +145,7 @@ COPY volunteers (name, project_id, id) FROM stdin;
 -- Name: volunteers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bably
 --
 
-SELECT pg_catalog.setval('volunteers_id_seq', 1, false);
+SELECT pg_catalog.setval('volunteers_id_seq', 233, true);
 
 
 --
