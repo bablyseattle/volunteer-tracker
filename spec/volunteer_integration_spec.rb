@@ -45,3 +45,26 @@ describe 'the project delete path', {:type => :feature} do
     expect(page).not_to have_content("creating online website")
   end
 end
+
+describe 'the volunteer creation path', {:type => :feature} do
+  it 'allows a user to create a volunteer' do
+    test_project = Project.new({:title => 'creating online website', :id => nil})
+    test_project.save
+    visit '/'
+    click_link('creating online website')
+    fill_in('name', :with => 'Bably')
+    click_button('Add')
+    expect(page).to have_content('Bably')
+  end
+
+  it 'allows user to see all volunteers ' do
+    test_project = Project.new({:title => 'creating online website', :id => nil})
+    test_project.save
+    visit '/'
+    click_link('creating online website')
+    fill_in('name', :with => 'Bably')
+    click_button('Add')
+    visit '/all_volunteers'
+    expect(page).to have_content('Bably')
+  end
+end

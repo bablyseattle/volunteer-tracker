@@ -52,7 +52,7 @@ end
 
 post('/add_volunteer') do
 	name = params["name"]
-	project_id = params.fetch("title")
+	project_id = params.fetch("project_id")
 	volunteer = Volunteer.new(:name => name, :id => nil, :project_id => project_id)
 	volunteer.save
 	redirect back

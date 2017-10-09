@@ -21,7 +21,7 @@
 
 <ul>
   <% @list.each do |item| %>
-  <li><a href="/<%=item.id() %>"><%=item.name %></a></li>
+  <li><%=item.name %></li>
   <% end %>
 </ul>
 <% else %>
@@ -38,3 +38,6 @@
   </div>
  <button type="submit" class="btn">Add</button>
 </form>
+<br><br>
+
+<a href="/"><button type="button" class="btn btn-info">Home</button></a>
